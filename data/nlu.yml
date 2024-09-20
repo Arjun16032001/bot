@@ -1,0 +1,31 @@
+version: "3.1"
+nlu:
+  - intent: book_seat
+    examples: |
+      - I want to book a seat
+      - Reserve a seat for me
+
+
+  - intent: cancel_seat
+    examples: |
+      - I want to cancel my reservation
+
+  - intent: provide_info
+    examples: |
+      - My name is [John](name)
+      - My phone number is [9876543210](phone)
+      - I want seat number [25](seat_number)
+      
+  - intent: user_cancel
+    examples: |
+      - Cancel the reservation with seat number [25](seat_number)
+      - Delete my booking with seat number [30](seat_number)
+
+  - intent: check_reservation_status
+    examples: |
+      - Check the status of my reservation for seat number [25](seat_number)
+
+  - intent: user_check
+    examples: |
+      - I want to check my reservation status
+      
