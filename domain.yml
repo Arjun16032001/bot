@@ -1,53 +1,57 @@
-version: "3.1"
+version: '3.1'
 intents:
-  - book_seat
-  - cancel_seat
-  - provide_info
-  - user_cancel
-  - check_reservation_status
-  - user_check
-
+- book_seat
+- cancel_seat
+- check_reservation_status
+- provide_name
+- provide_phone
+- provide_seat_number
+- user_cancel
+- user_check
 entities:
-  - name
-  - phone
-  - seat_number
-
+- seat_number
+- name
+- phone
 slots:
   name:
     type: text
+    influence_conversation: true
     mappings:
-      - type: from_entity
-        entity: name
-
+    - type: from_entity
+      entity: name
   phone:
     type: text
+    influence_conversation: true
     mappings:
-      - type: from_entity
-        entity: phone
-
+    - type: from_entity
+      entity: phone
   seat_number:
     type: text
+    influence_conversation: true
     mappings:
-      - type: from_entity
-        entity: seat_number
-
+    - type: from_entity
+      entity: seat_number
 actions:
-  - action_book_seat
-  - action_cancel_seat
-  - action_check_reservation_status
-
+- utter_ask_phone
+- utter_ask_name
+- action_book_seat
+- action_cancel_seat
+- action_check_reservation_status
 responses:
   utter_ask_name:
-    - text: "What is your name?"
+  - text: What is your name?
   utter_ask_phone:
-    - text: "What is your phone number?"
+  - text: What is your phone number?
   utter_ask_seat_number:
-    - text: "Which seat would you like to reserve?"
+  - text: Which seat would you like to reserve?
   utter_ask_seat_no_del:
-    - text: "What is your seat number to cancel?"
+  - text: What is your seat number to cancel?
   utter_thank_you:
-    - text: "Thank you! Your reservation is complete."
+  - text: Thank you! Your reservation is complete.
   utter_cancel_confirmation:
-    - text: "Your reservation has been canceled."
+  - text: Your reservation has been canceled.
   utter_ask_seat_number_for_status:
-    - text: "Please provide the seat number to check the reservation status."
+  - text: Please provide the seat number to check the reservation status.
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

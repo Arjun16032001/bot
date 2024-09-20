@@ -4,40 +4,24 @@ stories:
     steps:
       - intent: book_seat
       - action: utter_ask_name
-      - intent: provide_info
+      - intent: provide_name
         entities:
-          - name: "John"
+          - name: "Arjun"
       - slot_was_set:
-          - name: "John"
+          - name: "Arjun"
       - action: utter_ask_phone
-      - intent: provide_info
+      - intent: provide_phone
         entities:
-          - phone: "1234567890"
+          - phone: "9876543210"
       - slot_was_set:
-          - phone: "1234567890"
+          - phone: "9876543210"
       - action: utter_ask_seat_number
-      - intent: provide_info
+      - intent: provide_seat_number
         entities:
-          - seat_number: "12"
+          - seat_number: "25"
       - slot_was_set:
-          - seat_number: "12"
+          - seat_number: "25"
       - action: action_book_seat
-      - intent: cancel_seat
-      - action: utter_ask_seat_no_del
-      - intent: user_cancel
-        entities:
-          - seat_number: "12"
-      - slot_was_set:
-          - seat_number: "12"
-      - action: action_cancel_seat
-      # - intent: check_reservation_status
-      # - action: utter_ask_seat_number_for_status
-      # - intent: provide_info
-      #   entities:
-      #     - seat_number: "12"
-      # - slot_was_set:
-      #     - seat_number: "12"
-      # - action: action_check_reservation_status
 
   - story: cancel a reservation
     steps:
@@ -50,7 +34,7 @@ stories:
           - seat_number: "25"
       - action: action_cancel_seat
 
-  - story: check reservation
+  - story: check reservation status
     steps:
       - intent: user_check
       - action: utter_ask_seat_number_for_status

@@ -39,6 +39,8 @@ class ActionBookSeat(Action):
         phone = tracker.get_slot("phone")
         seat_number = tracker.get_slot("seat_number")
 
+        print(f"name:{name},phone:{phone},seatno:{seat_number}")
+
         response = requests.post("http://127.0.0.1:8000/reserve/", json={
             "name": name,
             "phone": phone,

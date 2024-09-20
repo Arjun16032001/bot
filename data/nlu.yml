@@ -4,28 +4,61 @@ nlu:
     examples: |
       - I want to book a seat
       - Reserve a seat for me
-
+      - Can I book a seat?
+      - Please book a seat for me
+      - I need to book a seat
 
   - intent: cancel_seat
     examples: |
       - I want to cancel my reservation
-
-  - intent: provide_info
+      - Cancel my booking
+      - Can you cancel my reservation?
+      - Cancel seat number [25](seat_number)
+      
+  - intent: provide_name
     examples: |
       - My name is [John](name)
+      - I am [Alice](name)
+      - My name is [Bob](name)
+      - Call me [Samantha](name)
+      - You can call me [Eve](name)
+
+  - intent: provide_phone
+    examples: |
       - My phone number is [9876543210](phone)
+      - You can reach me at [1234567890](phone)
+      - Contact me at [5556667777](phone)
+      - My phone number is [9998887777](phone)
+
+  - intent: provide_seat_number
+    examples: |
       - I want seat number [25](seat_number)
-      
+      - Please book seat [18](seat_number)
+      - Reserve seat number [12](seat_number)
+      - I need seat number [30](seat_number)
+
   - intent: user_cancel
     examples: |
-      - Cancel the reservation with seat number [25](seat_number)
-      - Delete my booking with seat number [30](seat_number)
+      - Cancel the reservation with seat number [*](seat_number)
+      - Delete my booking with seat number [*](seat_number)
 
   - intent: check_reservation_status
     examples: |
-      - Check the status of my reservation for seat number [25](seat_number)
+      - Check the status of my reservation for seat number [*](seat_number)
+      - What is the status of seat [12](seat_number)?
 
   - intent: user_check
     examples: |
       - I want to check my reservation status
+      - Check my reservation status
+      - What is the status of my reservation?
       
+regex:
+  - name: name
+    pattern: "[A-Za-z]+"
+
+  - name: phone
+    pattern: "[0-9]{10}"
+
+  - name: seat_number
+    pattern: "[0-9]+"
