@@ -1,64 +1,120 @@
 version: "3.1"
 nlu:
-  - intent: book_seat
-    examples: |
-      - I want to book a seat
-      - Reserve a seat for me
-      - Can I book a seat?
-      - Please book a seat for me
-      - I need to book a seat
+- intent: greet
+  examples: |
+    - Hi
+    - hello
+    - goodmorning
+    - hi
+- intent: book_seat
+  examples: |
+    - I want to book a seat
+    - Reserve a seat for me
+    - Can I book a seat?
+    - Please book a seat for me
+    - I need to book a seat
+- intent: cancel_seat
+  examples: |
+    - I want to cancel my reservation
+    - Cancel my booking
+    - Can you cancel my reservation?
+    - Cancel seat number [25](del_seat)
+- intent: provide_name
+  examples: |
+    - [Jobin](name)
+    - My name is [John](name)
+    - I am [Alice](name)
+    - My name is [Bob](name)
+    - Call me [Samantha](name)
+    - You can call me [Eve](name)
+    - My name is [Charlie](name)
+    - I go by [Daniel](name)
+    - I'm [Emma](name)
+    - Please call me [Olivia](name)
+    - I prefer to be called [Liam](name)
+    - You can call me [Noah](name)
+    - My friends call me [Sophia](name)
+    - I'm known as [James](name)
+    - My name is [Isabella](name)
+    - Call me [Mason](name)
+    - I am [Benjamin](name)
+    - My name is [Elijah](name)
+    - You can call me [Lucas](name)
+    - I’m [Ava](name)
+    - Just call me [Charlotte](name)
+    - I go by [Amelia](name)
+    - I prefer [Henry](name)
+    - My name is [Harper](name)
+    - I’m [Sebastian](name)
+    - Call me [Jack](name)
+    - Please refer to me as [Mia](name)
+    - I am [Aria](name)
+    - You can call me [Scarlett](name)
+    - Call me [Ella](name)
+    - My name is [William](name)
+- intent: provide_phone
+  examples: |
+    - [7012504332](phone)
+    - My phone number is [9876543210](phone)
+    - You can reach me at [1234567890](phone)
+    - Contact me at [5556667777](phone)
+    - My phone number is [9998887777](phone)
+    - Please call me at [8765432109](phone)
+    - You can contact me on [9087654321](phone)
+    - My contact number is [7654321987](phone)
+    - Reach me at [9871236540](phone)
+    - You can reach me at [8005551234](phone)
+    - Contact number is [6789012345](phone)
+    - My phone number is [1231231234](phone)
+    - You can call me on [9988776655](phone)
+- intent: provide_seat_number
+  examples: |
+    - [33](seat_number)
+    - I want seat number [25](seat_number)
+    - I need seat number [5](seat_number)
+    - Please reserve seat [12](seat_number)
+    - Book me seat number [30](seat_number)
+    - I’d like to book seat [19](seat_number)
+    - Can you reserve seat [18](seat_number) for me?
+    - Seat number [7](seat_number) is what I want
+    - Reserve seat [23](seat_number)
+    - Book seat [4](seat_number) for my reservation
+    - Please book seat number [10](seat_number)
+    - Can you book seat number [15](seat_number)?
+    - I would like to reserve seat [17](seat_number)
+- intent: user_cancel
+  examples: |
+    - Cancel the reservation with seat number [22](del_seat)
+    - Delete my booking with seat number [31](del_seat)
+    - Please cancel my reservation for seat number [15](del_seat)
+    - I want to cancel the seat [10](del_seat)
+    - Remove my booking for seat [27](del_seat)
+    - I'd like to cancel seat [20](del_seat)
 
-  - intent: cancel_seat
-    examples: |
-      - I want to cancel my reservation
-      - Cancel my booking
-      - Can you cancel my reservation?
-      - Cancel seat number [25](seat_number)
-      
-  - intent: provide_name
-    examples: |
-      - My name is [John](name)
-      - I am [Alice](name)
-      - My name is [Bob](name)
-      - Call me [Samantha](name)
-      - You can call me [Eve](name)
-
-  - intent: provide_phone
-    examples: |
-      - My phone number is [9876543210](phone)
-      - You can reach me at [1234567890](phone)
-      - Contact me at [5556667777](phone)
-      - My phone number is [9998887777](phone)
-
-  - intent: provide_seat_number
-    examples: |
-      - I want seat number [25](seat_number)
-      - Please book seat [18](seat_number)
-      - Reserve seat number [12](seat_number)
-      - I need seat number [30](seat_number)
-
-  - intent: user_cancel
-    examples: |
-      - Cancel the reservation with seat number [*](seat_number)
-      - Delete my booking with seat number [*](seat_number)
-
-  - intent: check_reservation_status
-    examples: |
-      - Check the status of my reservation for seat number [*](seat_number)
-      - What is the status of seat [12](seat_number)?
-
-  - intent: user_check
-    examples: |
-      - I want to check my reservation status
-      - Check my reservation status
-      - What is the status of my reservation?
-      
+- intent: check_reservation_status
+  examples: |
+      - Can you check the reservation for seat [22](check_seat)?
+      - What’s the status of seat number [5](check_seat)?
+      - I’d like to know the reservation status of seat [17](check_seat)
+      - Is my seat [8](check_seat) reserved?
+      - Can you tell me if seat [14](check_seat) is reserved?
+      - Could you check if seat [4](check_seat) is still booked?
+      - I want to check the booking status of seat [19](check_seat)
+      - Is seat [25](check_seat) available?
+      - What is the status of the reservation for seat [7](check_seat)?
+      - Please check the booking status for seat [3](check_seat)
+      - Can you look up my reservation for seat [13](check_seat)?
+      - Check if seat [9](check_seat) is still reserved
+      - Tell me the reservation status for seat [20](check_seat)
+      - Look up the reservation for seat [2](check_seat)
+      - Is seat [18](check_seat) still booked?
+      - Do I have a reservation for seat [11](check_seat)?
+      - What's the current reservation status for seat [6](check_seat)?
+- intent: user_check
+  examples: |
+    - I want to check my reservation status
+    - Check my reservation status
+    - What is the status of my reservation?
+    
 regex:
-  - name: name
-    pattern: "[A-Za-z]+"
-
-  - name: phone
-    pattern: "[0-9]{10}"
-
-  - name: seat_number
-    pattern: "[0-9]+"
+  phone: "[0-9]{10}"

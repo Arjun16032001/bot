@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-check_seat",
+      "2": "I-check_seat",
+      "3": "L-check_seat",
+      "4": "U-check_seat",
+      "5": "B-del_seat",
+      "6": "I-del_seat",
+      "7": "L-del_seat",
+      "8": "U-del_seat",
+      "9": "B-name",
+      "10": "I-name",
+      "11": "L-name",
+      "12": "U-name",
+      "13": "B-phone",
+      "14": "I-phone",
+      "15": "L-phone",
+      "16": "U-phone",
+      "17": "B-seat_number",
+      "18": "I-seat_number",
+      "19": "L-seat_number",
+      "20": "U-seat_number",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-check_seat": 1,
+      "I-check_seat": 2,
+      "L-check_seat": 3,
+      "U-check_seat": 4,
+      "B-del_seat": 5,
+      "I-del_seat": 6,
+      "L-del_seat": 7,
+      "U-del_seat": 8,
+      "B-name": 9,
+      "I-name": 10,
+      "L-name": 11,
+      "U-name": 12,
+      "B-phone": 13,
+      "I-phone": 14,
+      "L-phone": 15,
+      "U-phone": 16,
+      "B-seat_number": 17,
+      "I-seat_number": 18,
+      "L-seat_number": 19,
+      "U-seat_number": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]

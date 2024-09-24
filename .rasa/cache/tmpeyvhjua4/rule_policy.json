@@ -1,0 +1,46 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"hotel_form\"}}]": "action_book_seat",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"hotel_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_book_seat\"}}]": "utter_thank_you",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"hotel_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_book_seat\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_thank_you\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"cancel_form\"}}]": "action_cancel_seat",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"cancel_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_cancel_seat\"}}]": "utter_cancel_confirmation",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"cancel_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_cancel_seat\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"utter_cancel_confirmation\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"user_check\"}}]": "check_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"user_check\"}}, {\"active_loop\": {\"name\": \"check_form\"}, \"prev_action\": {\"action_name\": \"check_form\"}, \"user\": {\"intent\": \"user_check\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"book_seat\"}}]": "hotel_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"book_seat\"}}, {\"active_loop\": {\"name\": \"hotel_form\"}, \"prev_action\": {\"action_name\": \"hotel_form\"}, \"user\": {\"intent\": \"book_seat\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"check_form\"}}]": "action_check_reservation_status",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"check_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_check_reservation_status\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}]": "utter_greet",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}, {\"prev_action\": {\"action_name\": \"utter_greet\"}, \"user\": {\"intent\": \"greet\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"cancel_seat\"}}]": "cancel_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"cancel_seat\"}}, {\"active_loop\": {\"name\": \"cancel_form\"}, \"prev_action\": {\"action_name\": \"cancel_form\"}, \"user\": {\"intent\": \"cancel_seat\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [
+      "check_form",
+      "hotel_form",
+      "cancel_form"
+    ],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"check_form\"}, \"prev_action\": {\"action_name\": \"check_form\"}, \"user\": {\"intent\": \"user_check\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"hotel_form\"}, \"prev_action\": {\"action_name\": \"hotel_form\"}, \"user\": {\"intent\": \"book_seat\"}}]": "do_not_predict_loop_action",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"cancel_form\"}, \"prev_action\": {\"action_name\": \"cancel_form\"}, \"user\": {\"intent\": \"cancel_seat\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}, {\"prev_action\": {\"action_name\": \"utter_greet\"}, \"user\": {\"intent\": \"greet\"}}]",
+      "handling active loops and forms - cancel_form - action_listen",
+      "handling active loops and forms - hotel_form - action_listen",
+      "handling active loops and forms - hotel_form",
+      "handling active loops and forms - check_form - action_listen",
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"greet\"}}]",
+      "predicting default action with intent restart",
+      "handling active loops and forms - check_form",
+      "handling active loops and forms - cancel_form",
+      "predicting default action with intent back"
+    ]
+  }
+}

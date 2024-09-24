@@ -3,12 +3,15 @@ intents:
 - book_seat
 - cancel_seat
 - check_reservation_status
+- greet
 - provide_name
 - provide_phone
 - provide_seat_number
 - user_cancel
 - user_check
 entities:
+- del_seat
+- check_seat
 - seat_number
 - name
 - phone
@@ -31,26 +34,54 @@ slots:
     mappings:
     - type: from_entity
       entity: seat_number
+  del_seat:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: del_seat
+  check_seat:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: check_seat
+forms:
+  hotel_form:
+    required_slots:
+    - name
+    - phone
+    - seat_number
+  cancel_form:
+    ignored_intents:
+      - provide_phone
+      - provide_seat_number
+    required_slots:
+    - del_seat
+  check_form:
+    required_slots:
+    - check_seat
 actions:
-- utter_ask_phone
-- utter_ask_name
-- action_book_seat
 - action_cancel_seat
+- utter_ask_seat_no_del
+- action_book_seat
 - action_check_reservation_status
 responses:
+  utter_greet:
+  - text: Hi how can I help you?
   utter_ask_name:
   - text: What is your name?
   utter_ask_phone:
   - text: What is your phone number?
   utter_ask_seat_number:
   - text: Which seat would you like to reserve?
-  utter_ask_seat_no_del:
+  utter_ask_del_seat:
   - text: What is your seat number to cancel?
   utter_thank_you:
   - text: Thank you! Your reservation is complete.
   utter_cancel_confirmation:
   - text: Your reservation has been canceled.
-  utter_ask_seat_number_for_status:
+  utter_ask_check_seat:
   - text: Please provide the seat number to check the reservation status.
 session_config:
   session_expiration_time: 60

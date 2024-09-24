@@ -1,46 +1,36 @@
 version: "3.1"
 stories:
-  - story: book a seat
+  - story: Book a seat
     steps:
       - intent: book_seat
-      - action: utter_ask_name
-      - intent: provide_name
-        entities:
-          - name: "Arjun"
-      - slot_was_set:
-          - name: "Arjun"
-      - action: utter_ask_phone
-      - intent: provide_phone
-        entities:
-          - phone: "9876543210"
-      - slot_was_set:
-          - phone: "9876543210"
-      - action: utter_ask_seat_number
-      - intent: provide_seat_number
-        entities:
-          - seat_number: "25"
-      - slot_was_set:
-          - seat_number: "25"
+      - action: hotel_form
       - action: action_book_seat
+      - action: utter_thank_you
 
-  - story: cancel a reservation
+  - story: Cancel a seat
     steps:
       - intent: cancel_seat
-      - action: utter_ask_seat_no_del
-      - intent: user_cancel
-        entities:
-          - seat_number: "25"
-      - slot_was_set:
-          - seat_number: "25"
+      - action: cancel_form
       - action: action_cancel_seat
+      - action: utter_cancel_confirmation
 
-  - story: check reservation status
+  - story: Check a seat
     steps:
       - intent: user_check
-      - action: utter_ask_seat_number_for_status
-      - intent: check_reservation_status
-        entities:
-          - seat_number: "25"
-      - slot_was_set:
-          - seat_number: "25"
+      - action: check_form
       - action: action_check_reservation_status
+
+  # - story: check reservation status
+  #   steps:
+  #     - intent: user_check
+  #     - action: utter_ask_seat_number_for_status
+  #     - intent: check_reservation_status
+  #       entities:
+  #         - seat_number: "25"
+  #     - slot_was_set:
+  #         - seat_number: "25"
+  #     - action: action_check_reservation_status
+
+
+
+  

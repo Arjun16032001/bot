@@ -1,0 +1,54 @@
+version: "3.1"
+rules:
+- rule: greet user
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Activate form
+  steps:
+  - intent: book_seat
+  - action: hotel_form
+  - active_loop: hotel_form
+
+- rule: Submit hotel form
+  condition:
+  - active_loop: hotel_form
+  steps:
+  - action: hotel_form
+  - active_loop: null  
+  - action: action_book_seat 
+  - action: utter_thank_you
+
+- rule: Cancel form
+  steps:
+  - intent: cancel_seat
+  - action: cancel_form
+  - active_loop: cancel_form
+
+- rule: Submit cancel form
+  condition:
+  - active_loop: cancel_form
+  steps:
+  - action: cancel_form
+  - active_loop: null  
+  - action: action_cancel_seat 
+  - action: utter_cancel_confirmation
+
+- rule: Check form
+  steps:
+  - intent: user_check
+  - action: check_form
+  - active_loop: check_form
+
+- rule: Submit check form
+  condition:
+  - active_loop: check_form
+  steps:
+  - action: check_form
+  - active_loop: null  
+  - action: action_check_reservation_status 
+
+
+    
+  

@@ -58,7 +58,7 @@ class ActionCancelSeat(Action):
         return "action_cancel_seat"
 
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        seat_number = tracker.get_slot("seat_number")
+        seat_number = tracker.get_slot("del_seat")
 
         response = requests.delete(f"http://127.0.0.1:8000/cancel/{seat_number}")
 
@@ -75,7 +75,7 @@ class ActionCheckReservationStatus(Action):
     async def run(self, dispatcher: CollectingDispatcher,
                   tracker: Tracker,
                   domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        seat_number = tracker.get_slot("seat_number")
+        seat_number = tracker.get_slot("check_seat")
 
         if not seat_number:
             dispatcher.utter_message(text="Please provide a seat number to check the reservation status.")
